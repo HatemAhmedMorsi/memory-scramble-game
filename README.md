@@ -3,6 +3,17 @@ Memory Scramble Game
 This is a modern, high-performance Memory Match game built with TypeScript, focusing on core Software Engineering principles like Concurrency, Asynchronous Programming, and Performance Optimization. The game is designed to handle extreme stress cases (up to a 30x30 grid) while maintaining a smooth UI and accurate timing.
 ________________________________________
 
+
+* PROJECT SPECIFICATIONS:
+ * -----------------------
+ * 1. Concurrency: Offloads timing logic to 'timerWorker' to ensure accuracy under high DOM load.
+ * 2. Performance: Implements "Batch Rendering" via Promises and requestAnimationFrame 
+ *    to handle large grids (up to 30x30) without blocking the Main Thread.
+ * 3. Memory Management: Uses DocumentFragment for batch DOM injection to minimize Reflow/Repaint.
+ * 4. Async Flow: Manages game states (flip, match, delay) using Async/Await to avoid callback hell.
+ * 5. Scalability: Responsive CSS Grid logic that adapts dynamically to 'nCols'.
+ ________________________________________
+
 🏗 Architecture Explanation
 The project follows a Multi-Threaded Architecture to ensure that heavy UI operations or game logic do not block the main execution thread.
 1. Concurrency Model (Web Workers)
