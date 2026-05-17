@@ -1,0 +1,1 @@
+(function(){"use strict";const s=self;let t=[];s.onmessage=i=>{const{type:n,cardId:c}=i.data;if(n==="USER_CLICK"){const e=String(c);t.includes(e)||(t.push(e),s.postMessage({type:"VALIDATED_INPUT",payload:{cardId:e,processedAt:Date.now()}}),setTimeout(()=>{t=t.filter(o=>o!==e)},300))}}})();
