@@ -1,3 +1,4 @@
+export {};
 /**
  * @file timer.worker.ts
  * @description Background worker for game timing.

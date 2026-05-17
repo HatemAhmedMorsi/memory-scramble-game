@@ -1,5 +1,5 @@
 // src/game.worker.ts
-
+export {};
 import { Card } from './types';
 
 /**
