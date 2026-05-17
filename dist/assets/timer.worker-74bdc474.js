@@ -1,0 +1,1 @@
+(function(){"use strict";let a=0,e=null;const s=self;s.onmessage=t=>{const{action:l}=t.data;switch(l){case"START":e||(e=setInterval(()=>{a++,s.postMessage({type:"TICK",payload:a})},1e3));break;case"STOP":e&&(clearInterval(e),e=null,a=0);break;case"RESET":a=0,e&&(clearInterval(e),e=null),s.postMessage({type:"TICK",payload:a});break}}})();
