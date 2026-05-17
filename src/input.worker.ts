@@ -9,32 +9,32 @@ export {};
  *  - Throttle or Queue inputs to prevent "Double-Click".
  */
 
+
 const ctx: Worker = self as any;
 
-// A simple queue to manage rapid clicks
-let inputQueue: number[] = [];
+// Defined as string array to prevent 'never' error
+let inputQueue: string[] = [];
 
 ctx.onmessage = (e: MessageEvent) => {
-    const { type, cardId, timestamp } = e.data;
+    const { type, cardId } = e.data;
 
     if (type === 'USER_CLICK') {
-        // Validation: Ignore if the click is already being processed
-        if (!inputQueue.includes(cardId)) {
-            inputQueue.push(cardId);
+        const idString = String(cardId);
+        if (!inputQueue.includes(idString)) {
+            inputQueue.push(idString);
 
-            // Logic: Pass the validated input back to the Game Controller
             ctx.postMessage({
                 type: 'VALIDATED_INPUT',
                 payload: {
-                    cardId,
+                    cardId: idString,
                     processedAt: Date.now()
                 }
             });
 
-            // Small cooldown to prevent accidental double taps
+            // Remove from queue after cooldown
             setTimeout(() => {
-                inputQueue = inputQueue.filter(id => id !== cardId);
-            }, 300); 
+                inputQueue = inputQueue.filter(id => id !== idString);
+            }, 300);
         }
     }
 };

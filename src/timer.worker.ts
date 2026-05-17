@@ -33,6 +33,7 @@ ctx.onmessage = (e: MessageEvent) => {
             if (intervalId) {
                 clearInterval(intervalId);
                 intervalId = null;
+                seconds = 0;
             }
             break;
 
