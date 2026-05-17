@@ -2,9 +2,7 @@ Memory Scramble Game
 📋 Project Overview
 This is a modern, high-performance Memory Match game built with TypeScript, focusing on core Software Engineering principles like Concurrency, Asynchronous Programming, and Performance Optimization. The game is designed to handle extreme stress cases (up to a 30x30 grid) while maintaining a smooth UI and accurate timing.
 ________________________________________
-Authors:
-1.	Mohammed Hesham Ahmed (Student ID: 11422025410051)
-2.	Hatem Ahmed Morsy(Student ID: 11422025483037)
+
 🏗 Architecture Explanation
 The project follows a Multi-Threaded Architecture to ensure that heavy UI operations or game logic do not block the main execution thread.
 1. Concurrency Model (Web Workers)
@@ -35,7 +33,7 @@ Bash
 npm install
 Running the Project
 •	Development Mode:
-Bash
+*   **Build for Dev:**
     npm run dev
     ```
 *   **Build for Production:**
@@ -52,3 +50,8 @@ Bash
 *   **Build Tool:** Vite (for fast HMR and bundling)
 
 ---
+________________________________________
+Authors:
+1.	Mohammed Hesham Ahmed (Student ID: 11422025410051)
+2.	Hatem Ahmed Morsy(Student ID: 11422025483037)
+________________________________________
